@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		605B28EF199262400058CE73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605B28EE199262400058CE73 /* Foundation.framework */; };
+		605B28F1199262400058CE73 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605B28F0199262400058CE73 /* CoreGraphics.framework */; };
+		605B28F3199262400058CE73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605B28F2199262400058CE73 /* UIKit.framework */; };
+		605B28F9199262400058CE73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 605B28F7199262400058CE73 /* InfoPlist.strings */; };
+		605B28FB199262400058CE73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 605B28FA199262400058CE73 /* main.m */; };
+		605B28FF199262400058CE73 /* BABAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 605B28FE199262400058CE73 /* BABAppDelegate.m */; };
+		605B2901199262400058CE73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 605B2900199262400058CE73 /* Images.xcassets */; };
+		605B2908199262400058CE73 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605B2907199262400058CE73 /* XCTest.framework */; };
+		605B2909199262400058CE73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605B28EE199262400058CE73 /* Foundation.framework */; };
+		605B290A199262400058CE73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605B28F2199262400058CE73 /* UIKit.framework */; };
+		605B2912199262400058CE73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 605B2910199262400058CE73 /* InfoPlist.strings */; };
+		605B2914199262400058CE73 /* Bricks_and_BallsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 605B2913199262400058CE73 /* Bricks_and_BallsTests.m */; };
+		605B2923199262C20058CE73 /* BABGameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605B2922199262C20058CE73 /* BABGameBoardViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		605B290B199262400058CE73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 605B28E3199262400058CE73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 605B28EA199262400058CE73;
+			remoteInfo = "Bricks and Balls";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		605B28EB199262400058CE73 /* Bricks and Balls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bricks and Balls.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		605B28EE199262400058CE73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		605B28F0199262400058CE73 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		605B28F2199262400058CE73 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		605B28F6199262400058CE73 /* Bricks and Balls-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bricks and Balls-Info.plist"; sourceTree = "<group>"; };
+		605B28F8199262400058CE73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		605B28FA199262400058CE73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		605B28FC199262400058CE73 /* Bricks and Balls-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bricks and Balls-Prefix.pch"; sourceTree = "<group>"; };
+		605B28FD199262400058CE73 /* BABAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BABAppDelegate.h; sourceTree = "<group>"; };
+		605B28FE199262400058CE73 /* BABAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BABAppDelegate.m; sourceTree = "<group>"; };
+		605B2900199262400058CE73 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		605B2906199262400058CE73 /* Bricks and BallsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bricks and BallsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		605B2907199262400058CE73 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		605B290F199262400058CE73 /* Bricks and BallsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bricks and BallsTests-Info.plist"; sourceTree = "<group>"; };
+		605B2911199262400058CE73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		605B2913199262400058CE73 /* Bricks_and_BallsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bricks_and_BallsTests.m; sourceTree = "<group>"; };
+		605B2921199262C20058CE73 /* BABGameBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BABGameBoardViewController.h; path = "Bricks and Balls/BABGameBoardViewController.h"; sourceTree = "<group>"; };
+		605B2922199262C20058CE73 /* BABGameBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BABGameBoardViewController.m; path = "Bricks and Balls/BABGameBoardViewController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		605B28E8199262400058CE73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605B28F1199262400058CE73 /* CoreGraphics.framework in Frameworks */,
+				605B28F3199262400058CE73 /* UIKit.framework in Frameworks */,
+				605B28EF199262400058CE73 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		605B2903199262400058CE73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605B2908199262400058CE73 /* XCTest.framework in Frameworks */,
+				605B290A199262400058CE73 /* UIKit.framework in Frameworks */,
+				605B2909199262400058CE73 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		605B28E2199262400058CE73 = {
+			isa = PBXGroup;
+			children = (
+				605B291D1992628F0058CE73 /* Controllers */,
+				605B28F4199262400058CE73 /* Bricks and Balls */,
+				605B290D199262400058CE73 /* Bricks and BallsTests */,
+				605B28ED199262400058CE73 /* Frameworks */,
+				605B28EC199262400058CE73 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		605B28EC199262400058CE73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				605B28EB199262400058CE73 /* Bricks and Balls.app */,
+				605B2906199262400058CE73 /* Bricks and BallsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		605B28ED199262400058CE73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				605B28EE199262400058CE73 /* Foundation.framework */,
+				605B28F0199262400058CE73 /* CoreGraphics.framework */,
+				605B28F2199262400058CE73 /* UIKit.framework */,
+				605B2907199262400058CE73 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		605B28F4199262400058CE73 /* Bricks and Balls */ = {
+			isa = PBXGroup;
+			children = (
+				605B28FD199262400058CE73 /* BABAppDelegate.h */,
+				605B28FE199262400058CE73 /* BABAppDelegate.m */,
+				605B2900199262400058CE73 /* Images.xcassets */,
+				605B28F5199262400058CE73 /* Supporting Files */,
+			);
+			path = "Bricks and Balls";
+			sourceTree = "<group>";
+		};
+		605B28F5199262400058CE73 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				605B28F6199262400058CE73 /* Bricks and Balls-Info.plist */,
+				605B28F7199262400058CE73 /* InfoPlist.strings */,
+				605B28FA199262400058CE73 /* main.m */,
+				605B28FC199262400058CE73 /* Bricks and Balls-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		605B290D199262400058CE73 /* Bricks and BallsTests */ = {
+			isa = PBXGroup;
+			children = (
+				605B2913199262400058CE73 /* Bricks_and_BallsTests.m */,
+				605B290E199262400058CE73 /* Supporting Files */,
+			);
+			path = "Bricks and BallsTests";
+			sourceTree = "<group>";
+		};
+		605B290E199262400058CE73 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				605B290F199262400058CE73 /* Bricks and BallsTests-Info.plist */,
+				605B2910199262400058CE73 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		605B291D1992628F0058CE73 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				605B2921199262C20058CE73 /* BABGameBoardViewController.h */,
+				605B2922199262C20058CE73 /* BABGameBoardViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		605B28EA199262400058CE73 /* Bricks and Balls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 605B2917199262400058CE73 /* Build configuration list for PBXNativeTarget "Bricks and Balls" */;
+			buildPhases = (
+				605B28E7199262400058CE73 /* Sources */,
+				605B28E8199262400058CE73 /* Frameworks */,
+				605B28E9199262400058CE73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bricks and Balls";
+			productName = "Bricks and Balls";
+			productReference = 605B28EB199262400058CE73 /* Bricks and Balls.app */;
+			productType = "com.apple.product-type.application";
+		};
+		605B2905199262400058CE73 /* Bricks and BallsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 605B291A199262400058CE73 /* Build configuration list for PBXNativeTarget "Bricks and BallsTests" */;
+			buildPhases = (
+				605B2902199262400058CE73 /* Sources */,
+				605B2903199262400058CE73 /* Frameworks */,
+				605B2904199262400058CE73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				605B290C199262400058CE73 /* PBXTargetDependency */,
+			);
+			name = "Bricks and BallsTests";
+			productName = "Bricks and BallsTests";
+			productReference = 605B2906199262400058CE73 /* Bricks and BallsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		605B28E3199262400058CE73 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BAB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Shane Sniteman";
+				TargetAttributes = {
+					605B2905199262400058CE73 = {
+						TestTargetID = 605B28EA199262400058CE73;
+					};
+				};
+			};
+			buildConfigurationList = 605B28E6199262400058CE73 /* Build configuration list for PBXProject "Bricks and Balls" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 605B28E2199262400058CE73;
+			productRefGroup = 605B28EC199262400058CE73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				605B28EA199262400058CE73 /* Bricks and Balls */,
+				605B2905199262400058CE73 /* Bricks and BallsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		605B28E9199262400058CE73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605B28F9199262400058CE73 /* InfoPlist.strings in Resources */,
+				605B2901199262400058CE73 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		605B2904199262400058CE73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605B2912199262400058CE73 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		605B28E7199262400058CE73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605B2923199262C20058CE73 /* BABGameBoardViewController.m in Sources */,
+				605B28FF199262400058CE73 /* BABAppDelegate.m in Sources */,
+				605B28FB199262400058CE73 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		605B2902199262400058CE73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605B2914199262400058CE73 /* Bricks_and_BallsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		605B290C199262400058CE73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 605B28EA199262400058CE73 /* Bricks and Balls */;
+			targetProxy = 605B290B199262400058CE73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		605B28F7199262400058CE73 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				605B28F8199262400058CE73 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		605B2910199262400058CE73 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				605B2911199262400058CE73 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		605B2915199262400058CE73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		605B2916199262400058CE73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		605B2918199262400058CE73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bricks and Balls/Bricks and Balls-Prefix.pch";
+				INFOPLIST_FILE = "Bricks and Balls/Bricks and Balls-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		605B2919199262400058CE73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bricks and Balls/Bricks and Balls-Prefix.pch";
+				INFOPLIST_FILE = "Bricks and Balls/Bricks and Balls-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		605B291B199262400058CE73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bricks and Balls.app/Bricks and Balls";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bricks and Balls/Bricks and Balls-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Bricks and BallsTests/Bricks and BallsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		605B291C199262400058CE73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bricks and Balls.app/Bricks and Balls";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bricks and Balls/Bricks and Balls-Prefix.pch";
+				INFOPLIST_FILE = "Bricks and BallsTests/Bricks and BallsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		605B28E6199262400058CE73 /* Build configuration list for PBXProject "Bricks and Balls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				605B2915199262400058CE73 /* Debug */,
+				605B2916199262400058CE73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		605B2917199262400058CE73 /* Build configuration list for PBXNativeTarget "Bricks and Balls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				605B2918199262400058CE73 /* Debug */,
+				605B2919199262400058CE73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		605B291A199262400058CE73 /* Build configuration list for PBXNativeTarget "Bricks and BallsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				605B291B199262400058CE73 /* Debug */,
+				605B291C199262400058CE73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 605B28E3199262400058CE73 /* Project object */;
+}
