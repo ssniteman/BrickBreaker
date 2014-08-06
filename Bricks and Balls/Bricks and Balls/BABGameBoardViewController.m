@@ -21,6 +21,7 @@
     UICollisionBehavior * collisionBehavior;
     
     UIView * ball;
+    UIView * paddle;
     
     NSMutableArray * bricks;
     
@@ -71,8 +72,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    paddle = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, SCREEN_HEIGHT - 8, 100, 4)];
     
-    ball = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 20) / 2, SCREEN_HEIGHT - 30, 20, 20)];
+    paddle.backgroundColor = [UIColor darkGrayColor];
+    [self.view addSubview:paddle];
+    
+    
+    
+    
+    ball = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 20) / 2, SCREEN_HEIGHT - 50, 20, 20)];
     ball.layer.cornerRadius = ball.frame.size.width / 2.0;
     ball.backgroundColor = [UIColor magentaColor];
     [self.view addSubview:ball];
@@ -121,6 +130,9 @@
     [collisionBehavior addItem:ball];
     [ballItemBehavior addItem:ball];
     
+    [collisionBehavior addItem:paddle];
+    [brickItemBehavior addItem:paddle];
+    
     
     UIPushBehavior * pushBehavior = [[UIPushBehavior alloc] initWithItems:@[ball] mode:UIPushBehaviorModeInstantaneous];
     
@@ -129,12 +141,6 @@
     [animator addBehavior:pushBehavior];
     
     
-//    [ballItemBehavior addItem:ball2];
-//    [gravityBehavior addItem:ball];
-    
-
-//    [collisionBehavior addItem:ball2];
-
 }
 
 - (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
