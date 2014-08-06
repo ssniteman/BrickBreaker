@@ -8,6 +8,12 @@
 
 #import "BABGameBoardViewController.h"
 
+// 3 lives
+// after you hit floor, start new ball and take away one life
+// once all 3 lives lost, game over alert, with option to restart (should reset life count)
+// score count, bricks broken add points to score count
+// create temporty label for score count
+
 @interface BABGameBoardViewController () <UICollisionBehaviorDelegate>
 
 @end
@@ -175,20 +181,25 @@
 
 - (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
 {
-    for (UIView * brick in bricks)
+    for (UIView * brick in [bricks copy])
     {
         if ([item1 isEqual:brick] || [item2 isEqual:brick])
         {
             [collisionBehavior removeItem:brick];
             [brick removeFromSuperview];
             
+            [gravityBehavior addItem:brick];
+            
+            [bricks removeObjectIdenticalTo:brick];
+            
+            
             [UIView animateWithDuration:0.3 animations:^{
                 brick.alpha = 0;
             } completion:^(BOOL finished) {
+                
                 [brick removeFromSuperview];
                 
-                [bricks removeObjectIdenticalTo:brick];
-            
+                
             }];
         }
     }
