@@ -27,10 +27,13 @@
     UICollisionBehavior * collisionBehavior;
     UIAttachmentBehavior * attachmentBehavior;
     
+    UILabel * scoreLabel;
     UIView * ball;
     UIView * paddle;
     
     NSMutableArray * bricks;
+    
+    int score;
     
     
     
@@ -118,8 +121,8 @@
             float width = (SCREEN_WIDTH - (brickSpacing * (colCount + 1))) / colCount;
             float height = ((SCREEN_HEIGHT / 3) - (brickSpacing * rowCount)) / rowCount;
             
-            float x = 10 + (width + brickSpacing) * col;
-            float y = 10 + (height + brickSpacing) * row;
+            float x = brickSpacing + (width + brickSpacing) * col;
+            float y = 30 + (height + brickSpacing) * row;
             
         
             UIView * brick = [[UIView alloc] initWithFrame:CGRectMake(x, y, width, height)];
@@ -131,6 +134,18 @@
             [bricks addObject:brick];
         }
     }
+    
+    
+    scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 0, 50, 30)];
+    
+    scoreLabel.backgroundColor = [UIColor clearColor];
+    scoreLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    scoreLabel.layer.borderWidth  = 2;
+    
+    
+    scoreLabel.text = [NSString stringWithFormat:@"0"];
+    
+    [self.view addSubview:scoreLabel];
 
     
 }
@@ -200,6 +215,13 @@
                 [brick removeFromSuperview];
                 
                 
+                // increasing score and then putting it in label
+                
+                score ++;
+                
+                scoreLabel.text = [NSString stringWithFormat:@"%d",score];
+                
+                NSLog(@"%d",score);
             }];
         }
     }
