@@ -8,7 +8,7 @@
 
 #import "BABGameBoardViewController.h"
 
-@interface BABGameBoardViewController ()
+@interface BABGameBoardViewController () <UICollisionBehaviorDelegate>
 
 @end
 
@@ -45,6 +45,7 @@
         ballItemBehavior.friction = 0;
         ballItemBehavior.elasticity = 1;
         ballItemBehavior.resistance = 0;
+        ballItemBehavior.allowsRotation = NO;
         [animator addBehavior:ballItemBehavior];
         
         gravityBehavior = [[UIGravityBehavior alloc] init];
@@ -53,6 +54,7 @@
         
         collisionBehavior = [[UICollisionBehavior alloc] init];
         collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+        collisionBehavior.collisionDelegate = self;
         [animator addBehavior:collisionBehavior];
         
         brickItemBehavior = [[UIDynamicItemBehavior alloc] init];
@@ -85,7 +87,7 @@
         {
             
             float width = (SCREEN_WIDTH - (brickSpacing * (colCount + 1))) / colCount;
-            float height = ((SCREEN_HEIGHT / 3) - (brickSpacing) * rowCount)) / rowCount;
+            float height = ((SCREEN_HEIGHT / 3) - (brickSpacing * rowCount)) / rowCount;
             
             float x = 10 + (width + brickSpacing) * col;
             float y = 10 + (height + brickSpacing) * row;
@@ -133,6 +135,18 @@
 
 //    [collisionBehavior addItem:ball2];
 
+}
+
+- (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
+{
+    for (UIView * brick in bricks)
+    {
+        if ([item1 isEqual:brick] || [item2 isEqual:brick])
+        {
+            [collisionBehavior removeItem:brick];
+            [brick removeFromSuperview];
+        }
+    }
 }
 
 -(BOOL)prefersStatusBarHidden { return YES; }
