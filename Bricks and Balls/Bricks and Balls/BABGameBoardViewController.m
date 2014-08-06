@@ -32,6 +32,7 @@
     UILabel * livesLabel;
     UIView * ball;
     UIView * paddle;
+    UIButton * newLifeButton;
     
     NSMutableArray * bricks;
     
@@ -215,6 +216,13 @@
     
         NSLog(@"lives are %d",lives);
         
+        newLifeButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, SCREEN_HEIGHT - 100, 100, 30)];
+        
+        newLifeButton.backgroundColor = [UIColor blackColor];
+        [self.view addSubview:newLifeButton];
+        [newLifeButton addTarget:self action:@selector(newLifeClicked) forControlEvents:UIControlEventTouchUpInside];
+        
+        
     }
 }
 
@@ -280,11 +288,7 @@
     if (dragX > SCREEN_WIDTH - guard) dragX = SCREEN_WIDTH - guard;
     
     
-    
-    
-    
-    
-    
+
     attachmentBehavior.anchorPoint = CGPointMake(dragX, paddle.center.y);
     
     paddle.center = CGPointMake(location.x, paddle.center.y);
@@ -294,8 +298,17 @@
     attachmentBehavior.anchorPoint = paddle.center;
     
     
-    
 }
+
+
+
+- (void)newLifeClicked
+{
+        
+}
+
+
+
 
 
 -(BOOL)prefersStatusBarHidden { return YES; }
