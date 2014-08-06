@@ -73,7 +73,6 @@
         [animator addBehavior:gravityBehavior];
         
         collisionBehavior = [[UICollisionBehavior alloc] init];
-//      collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
         collisionBehavior.collisionDelegate = self;
         
         // need to create boundaries so when ball hits bottom, it goes away
@@ -85,6 +84,11 @@
         [collisionBehavior addBoundaryWithIdentifier:@"right wall" fromPoint:CGPointMake(SCREEN_WIDTH,0) toPoint:CGPointMake(SCREEN_WIDTH, SCREEN_HEIGHT)];
         
         [collisionBehavior addBoundaryWithIdentifier:@"ceiling wall" fromPoint:CGPointMake(0,0) toPoint:CGPointMake(SCREEN_WIDTH,0)];
+        
+        [self newPaddle];
+        
+        [self newBall];
+
         
         
         [animator addBehavior:collisionBehavior];
@@ -104,17 +108,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    paddle = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, SCREEN_HEIGHT - 10, 100, 4)];
-    
-    paddle.backgroundColor = [UIColor darkGrayColor];
-    [self.view addSubview:paddle];
-    
-    
-    
-    ball = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 20) / 2, SCREEN_HEIGHT - 50, 20, 20)];
-    ball.layer.cornerRadius = ball.frame.size.width / 2.0;
-    ball.backgroundColor = [UIColor magentaColor];
-    [self.view addSubview:ball];
+   
     
     int colCount = 7;
     int rowCount = 4;
@@ -186,20 +180,8 @@
         [brickItemBehavior addItem:brick];
     }
     
-    [collisionBehavior addItem:ball];
-    [ballItemBehavior addItem:ball];
-    
     [collisionBehavior addItem:paddle];
     [brickItemBehavior addItem:paddle];
-    
-    
-    UIPushBehavior * pushBehavior = [[UIPushBehavior alloc] initWithItems:@[ball] mode:UIPushBehaviorModeInstantaneous];
-    
-    pushBehavior.pushDirection = CGVectorMake(0.1, -0.1);
-    
-    [animator addBehavior:pushBehavior];
-    
-    
 }
 
 - (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p
@@ -301,14 +283,47 @@
 }
 
 
-
-- (void)newLifeClicked
+- (void)newBall
 {
-        
+    ball = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 20) / 2, SCREEN_HEIGHT - 50, 20, 20)];
+    ball.layer.cornerRadius = ball.frame.size.width / 2.0;
+    ball.backgroundColor = [UIColor magentaColor];
+    [self.view addSubview:ball];
+    
+    [collisionBehavior addItem:ball];
+    [ballItemBehavior addItem:ball];
+    
+    UIPushBehavior * pushBehavior = [[UIPushBehavior alloc] initWithItems:@[ball] mode:UIPushBehaviorModeInstantaneous];
+    
+    pushBehavior.pushDirection = CGVectorMake(0.1, -0.1);
+    
+    [animator addBehavior:pushBehavior];
+}
+
+- (void)newPaddle
+{
+    paddle = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, SCREEN_HEIGHT - 10, 100, 4)];
+    
+    paddle.backgroundColor = [UIColor darkGrayColor];
+    [self.view addSubview:paddle];
+    
 }
 
 
 
+
+- (void)newLifeClicked
+{
+
+    
+    attachmentBehavior.anchorPoint = CGPointMake(SCREEN_WIDTH / 2,paddle.center.y);
+    
+    [self newBall];
+    
+
+    
+    newLifeButton.hidden = YES;
+}
 
 
 -(BOOL)prefersStatusBarHidden { return YES; }
