@@ -19,11 +19,14 @@
     UIDynamicItemBehavior * brickItemBehavior;
     UIGravityBehavior * gravityBehavior;
     UICollisionBehavior * collisionBehavior;
+    UIAttachmentBehavior * attachmentBehavior;
     
     UIView * ball;
     UIView * paddle;
     
     NSMutableArray * bricks;
+    
+    
     
     
 }
@@ -73,11 +76,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    paddle = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, SCREEN_HEIGHT - 8, 100, 4)];
+    paddle = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, SCREEN_HEIGHT - 20, 100, 4)];
     
     paddle.backgroundColor = [UIColor darkGrayColor];
     [self.view addSubview:paddle];
-    
     
     
     
@@ -120,6 +122,10 @@
 {
     [super viewWillAppear:animated];
     
+    attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:paddle attachedToAnchor:paddle.center];
+    [animator addBehavior:attachmentBehavior];
+    
+    
     
     for (UIView * brick in bricks)
     {
@@ -143,6 +149,7 @@
     
 }
 
+
 - (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
 {
     for (UIView * brick in bricks)
@@ -154,6 +161,35 @@
         }
     }
 }
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self movePaddleWithTouches:touches];
+}
+
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self movePaddleWithTouches:touches];
+}
+
+
+- (void)movePaddleWithTouches:(NSSet *)touches
+{
+    UITouch * touch = [touches allObjects][0];
+    CGPoint location = [touch locationInView:self.view];
+    
+    paddle.center = CGPointMake(location.x, paddle.center.y);
+
+    // keeps the density to where you touch - doesn't bounce back to middle
+    
+    attachmentBehavior.anchorPoint = paddle.center;
+    
+    
+    
+}
+
 
 -(BOOL)prefersStatusBarHidden { return YES; }
 
