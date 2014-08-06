@@ -27,14 +27,16 @@
     UICollisionBehavior * collisionBehavior;
     UIAttachmentBehavior * attachmentBehavior;
     
+    
     UILabel * scoreLabel;
+    UILabel * livesLabel;
     UIView * ball;
     UIView * paddle;
     
     NSMutableArray * bricks;
     
     int score;
-    
+    int lives;
     
     
     
@@ -45,6 +47,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        
+        lives = 3;
+        score = 0;
         
         bricks = [@[] mutableCopy];
         
@@ -136,17 +142,30 @@
     }
     
     
-    scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 0, 50, 30)];
+    scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 80, 0, 70, 30)];
     
     scoreLabel.backgroundColor = [UIColor clearColor];
     scoreLabel.layer.borderColor = [UIColor blackColor].CGColor;
     scoreLabel.layer.borderWidth  = 2;
     
     
-    scoreLabel.text = [NSString stringWithFormat:@"0"];
+    scoreLabel.text = [NSString stringWithFormat:@"%d",score];
     
     [self.view addSubview:scoreLabel];
 
+    
+    livesLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 70, 30)];
+    
+    livesLabel.backgroundColor = [UIColor clearColor];
+    livesLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    livesLabel.layer.borderWidth  = 2;
+    
+    
+    livesLabel.text = [NSString stringWithFormat:@"%d",lives];
+    
+    [self.view addSubview:livesLabel];
+    
+    
     
 }
 
@@ -189,6 +208,13 @@
         UIView * ballItem = (UIView *)item;
         [collisionBehavior removeItem:ballItem];
         [ballItem removeFromSuperview];
+        
+        lives --;
+        
+        livesLabel.text = [NSString stringWithFormat:@"%d",lives];
+    
+        NSLog(@"lives are %d",lives);
+        
     }
 }
 
