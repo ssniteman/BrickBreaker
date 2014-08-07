@@ -27,19 +27,15 @@
         
         scoreLabel.backgroundColor = [UIColor clearColor];
         scoreLabel.textAlignment = NSTextAlignmentRight;
-        scoreLabel.text = [NSString stringWithFormat:@"%d",self.score];
+        scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.score];
         
         [self addSubview:scoreLabel];
         
         
         livesLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 70, 30)];
-        
         livesLabel.backgroundColor = [UIColor clearColor];
-        livesLabel.layer.borderColor = [UIColor blackColor].CGColor;
-        livesLabel.layer.borderWidth  = 2;
         
-        
-        livesLabel.text = [NSString stringWithFormat:@"%d",self.lives];
+        livesLabel.text = [NSString stringWithFormat:@"Lives: %d",self.lives];
         
         [self addSubview:livesLabel];
         
@@ -58,9 +54,7 @@
 -(void)setLives:(int)lives
 {
     _lives = lives;
-
-    
-    livesLabel.text = [NSString stringWithFormat:@"%d",lives];
+    livesLabel.text = [NSString stringWithFormat:@"Lives: %d",lives];
 }
 
 @end

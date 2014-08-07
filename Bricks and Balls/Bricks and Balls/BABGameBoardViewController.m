@@ -43,6 +43,7 @@
     UIView * ball;
     UIView * paddle;
     UIButton * newLifeButton;
+    UIButton * restartGameButton;
     
     NSMutableArray * bricks;
     
@@ -124,6 +125,13 @@
     startButton.layer.cornerRadius = 50;
     [startButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:startButton];
+    
+    restartGameButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 200) / 2.0, (SCREEN_HEIGHT - 100) / 2, 200, 200)];
+    [restartGameButton setTitle:@"RESTART GAME" forState:UIControlStateNormal];
+    restartGameButton.titleLabel.textColor = [UIColor blackColor];
+    restartGameButton.backgroundColor = [UIColor grayColor];
+    restartGameButton.layer.cornerRadius = 100;
+    [restartGameButton addTarget:self action:@selector(restartGameButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)startGame
@@ -132,6 +140,10 @@
     
     [self resetBricks];
     [self newBall];
+    [self newPaddle];
+    
+    headerView.lives = 3;
+    headerView.score = 0;
 }
 
 
@@ -151,9 +163,9 @@
 {
     if ([@"floor" isEqualToString:(NSString *)identifier])
     {
-        UIView * ballItem = (UIView *)item;
-        [collisionBehavior removeItem:ballItem];
-        [ballItem removeFromSuperview];
+
+        [collisionBehavior removeItem:ball];
+        [ball removeFromSuperview];
         
         headerView.lives --;
         
@@ -165,8 +177,12 @@
         [self.view addSubview:newLifeButton];
         [newLifeButton addTarget:self action:@selector(newLifeClicked) forControlEvents:UIControlEventTouchUpInside];
         
-        
+        if (headerView.lives==0)
+        {
+            [self.view addSubview:restartGameButton];
+        }
     }
+  
 }
 
 
@@ -200,6 +216,7 @@
             }];
         }
     }
+    
 }
 
 
@@ -278,6 +295,8 @@
     [self newBall];
     
     newLifeButton.hidden = YES;
+    
+ 
 }
 
 - (void)resetBricks
@@ -321,6 +340,26 @@
     }
     
 }
+
+
+- (void)restartGameButtonClicked
+{
+    [self.view addSubview:startButton];
+    [restartGameButton removeFromSuperview];
+    [newLifeButton removeFromSuperview];
+    [ball removeFromSuperview];
+    [collisionBehavior removeItem:ball];
+    
+    for (UIView * brick in bricks)
+    {
+        [brick removeFromSuperview];
+        [collisionBehavior removeItem:brick];
+        [paddle removeFromSuperview];
+    }
+    
+    [bricks removeAllObjects];
+}
+
 
 
 -(BOOL)prefersStatusBarHidden { return YES; }
