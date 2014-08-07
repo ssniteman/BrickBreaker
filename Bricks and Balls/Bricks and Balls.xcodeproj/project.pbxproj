@@ -20,6 +20,7 @@
 		605B2912199262400058CE73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 605B2910199262400058CE73 /* InfoPlist.strings */; };
 		605B2914199262400058CE73 /* Bricks_and_BallsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 605B2913199262400058CE73 /* Bricks_and_BallsTests.m */; };
 		605B2923199262C20058CE73 /* BABGameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605B2922199262C20058CE73 /* BABGameBoardViewController.m */; };
+		605B292A1993BA0B0058CE73 /* BABHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 605B29291993BA0B0058CE73 /* BABHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		605B2913199262400058CE73 /* Bricks_and_BallsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bricks_and_BallsTests.m; sourceTree = "<group>"; };
 		605B2921199262C20058CE73 /* BABGameBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BABGameBoardViewController.h; path = "Bricks and Balls/BABGameBoardViewController.h"; sourceTree = "<group>"; };
 		605B2922199262C20058CE73 /* BABGameBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BABGameBoardViewController.m; path = "Bricks and Balls/BABGameBoardViewController.m"; sourceTree = "<group>"; };
+		605B29281993BA0B0058CE73 /* BABHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BABHeaderView.h; path = "Bricks and Balls/BABHeaderView.h"; sourceTree = "<group>"; };
+		605B29291993BA0B0058CE73 /* BABHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BABHeaderView.m; path = "Bricks and Balls/BABHeaderView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +156,18 @@
 			children = (
 				605B2921199262C20058CE73 /* BABGameBoardViewController.h */,
 				605B2922199262C20058CE73 /* BABGameBoardViewController.m */,
+				605B29241993B99D0058CE73 /* Views */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		605B29241993B99D0058CE73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				605B29281993BA0B0058CE73 /* BABHeaderView.h */,
+				605B29291993BA0B0058CE73 /* BABHeaderView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +269,7 @@
 				605B2923199262C20058CE73 /* BABGameBoardViewController.m in Sources */,
 				605B28FF199262400058CE73 /* BABAppDelegate.m in Sources */,
 				605B28FB199262400058CE73 /* main.m in Sources */,
+				605B292A1993BA0B0058CE73 /* BABHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

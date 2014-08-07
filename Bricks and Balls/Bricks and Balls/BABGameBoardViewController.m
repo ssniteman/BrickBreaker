@@ -8,6 +8,8 @@
 
 #import "BABGameBoardViewController.h"
 
+#import "BABHeaderView.h"
+
 // 3 lives
 // after you hit floor, start new ball and take away one life
 // once all 3 lives lost, game over alert, with option to restart (should reset life count)
@@ -28,18 +30,14 @@
     UIAttachmentBehavior * attachmentBehavior;
     
     
-    UILabel * scoreLabel;
-    UILabel * livesLabel;
+
     UIView * ball;
     UIView * paddle;
     UIButton * newLifeButton;
     
     NSMutableArray * bricks;
     
-    int score;
-    int lives;
-    
-    
+    BABHeaderView * headerView;
     
 }
 
@@ -49,9 +47,9 @@
     if (self) {
         // Custom initialization
         
+        headerView = [[BABHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
         
-        lives = 3;
-        score = 0;
+        [self.view addSubview:headerView];
         
         bricks = [@[] mutableCopy];
         
@@ -88,7 +86,6 @@
         [self newPaddle];
         
         [self newBall];
-
         
         
         [animator addBehavior:collisionBehavior];
@@ -97,7 +94,7 @@
         brickItemBehavior.density = 1000000;
         [animator addBehavior:brickItemBehavior];
         
-        
+         [self resetBricks];
         
     }
     return self;
@@ -108,60 +105,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-   
-    
-    int colCount = 7;
-    int rowCount = 4;
-    int brickSpacing = 10;
-    
-    for (int col = 0; col < colCount; col++)
-    {
-        for (int row = 0; row < rowCount; row++)
-        {
-            
-            float width = (SCREEN_WIDTH - (brickSpacing * (colCount + 1))) / colCount;
-            float height = ((SCREEN_HEIGHT / 3) - (brickSpacing * rowCount)) / rowCount;
-            
-            float x = brickSpacing + (width + brickSpacing) * col;
-            float y = 30 + (height + brickSpacing) * row;
-            
-        
-            UIView * brick = [[UIView alloc] initWithFrame:CGRectMake(x, y, width, height)];
-            
-            brick.backgroundColor = [UIColor lightGrayColor];
-            
-            [self.view addSubview:brick];
-            
-            [bricks addObject:brick];
-        }
-    }
-    
-    
-    scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 80, 0, 70, 30)];
-    
-    scoreLabel.backgroundColor = [UIColor clearColor];
-    scoreLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    scoreLabel.layer.borderWidth  = 2;
-    
-    
-    scoreLabel.text = [NSString stringWithFormat:@"%d",score];
-    
-    [self.view addSubview:scoreLabel];
 
-    
-    livesLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 70, 30)];
-    
-    livesLabel.backgroundColor = [UIColor clearColor];
-    livesLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    livesLabel.layer.borderWidth  = 2;
-    
-    
-    livesLabel.text = [NSString stringWithFormat:@"%d",lives];
-    
-    [self.view addSubview:livesLabel];
-    
-    
-    
 }
 
 
@@ -171,14 +115,7 @@
     
     attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:paddle attachedToAnchor:paddle.center];
     [animator addBehavior:attachmentBehavior];
-    
-    
-    
-    for (UIView * brick in bricks)
-    {
-        [collisionBehavior addItem:brick];
-        [brickItemBehavior addItem:brick];
-    }
+
     
     [collisionBehavior addItem:paddle];
     [brickItemBehavior addItem:paddle];
@@ -192,11 +129,11 @@
         [collisionBehavior removeItem:ballItem];
         [ballItem removeFromSuperview];
         
-        lives --;
+        headerView.lives --;
         
-        livesLabel.text = [NSString stringWithFormat:@"%d",lives];
+      
     
-        NSLog(@"lives are %d",lives);
+        NSLog(@"lives are %d",headerView.lives);
         
         newLifeButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, SCREEN_HEIGHT - 100, 100, 30)];
         
@@ -233,11 +170,9 @@
                 
                 // increasing score and then putting it in label
                 
-                score ++;
+                headerView.score += 100; // Auto calls [headerView setScore:]
                 
-                scoreLabel.text = [NSString stringWithFormat:@"%d",score];
-                
-                NSLog(@"%d",score);
+                NSLog(@"%d",headerView.score);
             }];
         }
     }
@@ -295,7 +230,7 @@
     
     UIPushBehavior * pushBehavior = [[UIPushBehavior alloc] initWithItems:@[ball] mode:UIPushBehaviorModeInstantaneous];
     
-    pushBehavior.pushDirection = CGVectorMake(0.1, -0.1);
+    pushBehavior.pushDirection = CGVectorMake(0.05, -0.1);
     
     [animator addBehavior:pushBehavior];
 }
@@ -314,15 +249,53 @@
 
 - (void)newLifeClicked
 {
-
-    
     attachmentBehavior.anchorPoint = CGPointMake(SCREEN_WIDTH / 2,paddle.center.y);
     
     [self newBall];
     
-
-    
     newLifeButton.hidden = YES;
+}
+
+- (void)resetBricks
+{
+    for (UIView * brick in bricks)
+    {
+        [brick removeFromSuperview];
+        [brickItemBehavior removeItem:brick];
+        [collisionBehavior removeItem:brick];
+    }
+    
+    [bricks removeAllObjects];
+    
+    int colCount = 7;
+    int rowCount = 4;
+    int brickSpacing = 10;
+    
+    for (int col = 0; col < colCount; col++)
+    {
+        for (int row = 0; row < rowCount; row++)
+        {
+            
+            float width = (SCREEN_WIDTH - (brickSpacing * (colCount + 1))) / colCount;
+            float height = ((SCREEN_HEIGHT / 3) - (brickSpacing * rowCount)) / rowCount;
+            
+            float x = brickSpacing + (width + brickSpacing) * col;
+            float y = 30 + (height + brickSpacing) * row;
+            
+            
+            UIView * brick = [[UIView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+            
+            brick.backgroundColor = [UIColor lightGrayColor];
+            
+            [self.view addSubview:brick];
+            
+            [bricks addObject:brick];
+            
+            [collisionBehavior addItem:brick];
+            [brickItemBehavior addItem:brick];
+        }
+    }
+    
 }
 
 
