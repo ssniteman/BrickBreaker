@@ -52,12 +52,14 @@
 - (void)setScore:(int)score
 {
     _score = score;
-    scoreLabel.text = [NSString stringWithFormat:@"Score is %d",score];
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %d",score];
 }
 
 -(void)setLives:(int)lives
 {
     _lives = lives;
+
+    
     livesLabel.text = [NSString stringWithFormat:@"%d",lives];
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "BABGameBoardViewController.h"
-
 #import "BABHeaderView.h"
 
 // 3 lives
@@ -15,6 +14,16 @@
 // once all 3 lives lost, game over alert, with option to restart (should reset life count)
 // score count, bricks broken add points to score count
 // create temporty label for score count
+
+//
+
+// when game, clear bricks and show start button
+// create new class called "BABLevelData" as a subclass of NSObject
+// make a method that will drop a uiview (gravity) from a broken brick like powerup...
+// listen for it to collide with paddle
+// randomly change size of paddle when powerup hit paddle
+//
+
 
 @interface BABGameBoardViewController () <UICollisionBehaviorDelegate>
 
@@ -38,6 +47,8 @@
     NSMutableArray * bricks;
     
     BABHeaderView * headerView;
+    
+    UIButton * startButton;
     
 }
 
@@ -85,7 +96,7 @@
         
         [self newPaddle];
         
-        [self newBall];
+//        [self newBall];
         
         
         [animator addBehavior:collisionBehavior];
@@ -94,7 +105,7 @@
         brickItemBehavior.density = 1000000;
         [animator addBehavior:brickItemBehavior];
         
-         [self resetBricks];
+//         [self resetBricks];
         
     }
     return self;
@@ -104,8 +115,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    startButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2.0, (SCREEN_HEIGHT - 100) / 2, 100, 100)];
+    [startButton setTitle:@"START" forState:UIControlStateNormal];
+    startButton.titleLabel.textColor = [UIColor blackColor];
+    startButton.backgroundColor = [UIColor grayColor];
+    startButton.layer.cornerRadius = 50;
+    [startButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:startButton];
+}
 
-
+- (void)startGame
+{
+    [startButton removeFromSuperview];
+    
+    [self resetBricks];
+    [self newBall];
 }
 
 
@@ -131,8 +157,6 @@
         
         headerView.lives --;
         
-      
-    
         NSLog(@"lives are %d",headerView.lives);
         
         newLifeButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) / 2, SCREEN_HEIGHT - 100, 100, 30)];
